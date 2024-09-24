@@ -72,3 +72,10 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+#  My Ignore
+Content/AncientContent
+Content/BlackAlder
+Content/Megascans
+Content/MedievalDungeon
+
