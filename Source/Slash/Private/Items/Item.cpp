@@ -2,12 +2,14 @@
 
 
 #include "Items/Item.h"
-#include "DrawDebugHelpers.h"
-#include "Slash/Slash.h"
+#include "Slash/DebugMacros.h"
 
 AItem::AItem()
 {
  	PrimaryActorTick.bCanEverTick = true;
+
+	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMeshComponent"));
+	RootComponent = ItemMesh;
 	
 }
 
@@ -15,31 +17,23 @@ void AItem::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UE_LOG(LogTemp, Warning, TEXT("Begin Play called!"));
+}
 
-	if(GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(1, 60.f, FColor::Red, TEXT("Item OnScreen Message!"));
-	}
+float AItem::TransformedSin()
+{
+	return Amplitude * FMath::Sin(RunningTime * TimeConstant);
+}
 
-	UWorld* World = GetWorld();
-
-	FVector Location = GetActorLocation();
-	DRAW_SPHERE(Location)
+float AItem::TransformedCos()
+{
+	return Amplitude * FMath::Cos(RunningTime * TimeConstant);
 }
 
 void AItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Warning, TEXT("DeltaTime : %f"), DeltaTime);
+	RunningTime += DeltaTime;
 
-	if(GEngine)
-	{
-		FString Name = GetName();
-		FString Message = FString::Printf(TEXT("Item Name : %s"), *Name);
-		GEngine->AddOnScreenDebugMessage(1, 60.f, FColor::Red, Message);
-		UE_LOG(LogTemp, Warning, TEXT("Item Name : %s"), *Name);
-	}
+	AddActorWorldRotation(FRotator(0.f, 0.f, 10.f) * DeltaTime);
 }
-
