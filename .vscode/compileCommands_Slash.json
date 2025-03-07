@@ -1,8 +1,24 @@
 [
 	{
+		"file": "D:\\UnrealEngine5\\Slash\\Source\\Slash\\DebugMacros.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\UnrealEngine5\\Slash\\.vscode\\compileCommands_Slash\\Slash.1.rsp"
+		],
+		"directory": "D:\\UE_5.3\\Engine\\Source"
+	},
+	{
 		"file": "D:\\UnrealEngine5\\Slash\\Source\\Slash\\Private\\Items\\Item.cpp",
 		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\UnrealEngine5\\Slash\\.vscode\\compileCommands_Slash\\Slash.1.rsp"
+		],
+		"directory": "D:\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\UnrealEngine5\\Slash\\Source\\Slash\\Private\\Pawns\\Bird.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\UnrealEngine5\\Slash\\.vscode\\compileCommands_Slash\\Slash.1.rsp"
 		],
 		"directory": "D:\\UE_5.3\\Engine\\Source"
@@ -10,7 +26,15 @@
 	{
 		"file": "D:\\UnrealEngine5\\Slash\\Source\\Slash\\Public\\Items\\Item.h",
 		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\UnrealEngine5\\Slash\\.vscode\\compileCommands_Slash\\Slash.1.rsp"
+		],
+		"directory": "D:\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\UnrealEngine5\\Slash\\Source\\Slash\\Public\\Pawns\\Bird.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\UnrealEngine5\\Slash\\.vscode\\compileCommands_Slash\\Slash.1.rsp"
 		],
 		"directory": "D:\\UE_5.3\\Engine\\Source"
@@ -18,7 +42,7 @@
 	{
 		"file": "D:\\UnrealEngine5\\Slash\\Source\\Slash\\Slash.Build.cs",
 		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\UnrealEngine5\\Slash\\.vscode\\compileCommands_Slash\\Slash.1.rsp"
 		],
 		"directory": "D:\\UE_5.3\\Engine\\Source"
@@ -26,7 +50,7 @@
 	{
 		"file": "D:\\UnrealEngine5\\Slash\\Source\\Slash\\Slash.cpp",
 		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\UnrealEngine5\\Slash\\.vscode\\compileCommands_Slash\\Slash.1.rsp"
 		],
 		"directory": "D:\\UE_5.3\\Engine\\Source"
@@ -34,7 +58,7 @@
 	{
 		"file": "D:\\UnrealEngine5\\Slash\\Source\\Slash\\Slash.h",
 		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\UnrealEngine5\\Slash\\.vscode\\compileCommands_Slash\\Slash.1.rsp"
 		],
 		"directory": "D:\\UE_5.3\\Engine\\Source"
