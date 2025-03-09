@@ -36,13 +36,13 @@ void ABird::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if(APlayerController* PlayerController = Cast<APlayerController>(GetController()))
+	/* if(APlayerController* PlayerController = Cast<APlayerController>(GetController()))
 	{
 		if(UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			Subsystem->AddMappingContext(BirdMappingContext, 0);
 		}
-	}
+	} */
 
 	
 }
@@ -58,30 +58,44 @@ void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	//PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ABird::MoveForward);
+	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ABird::MoveForward);
+	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ABird::Turn);
+	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &ABird::LookUp);
 
-	if(UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
+	/* if(UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ABird::Move);
-	}
+	} */
 
 }
 
 void ABird::MoveForward(float Value)
 {
-	/*if(Controller &&(Value != 0.f))
+	
+	if(Controller &&(Value != 0.f))
 	{
 		FVector Forward = GetActorForwardVector();
 		AddMovementInput(Forward, Value);
 	}
-	*/
+	
 }
 
-void ABird::Move(const FInputActionValue& Value)
+void ABird::Turn(float Value)
 {
-	const bool CurrentValue = Value.Get<bool>();
-	if(CurrentValue)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("IA Move triggerd"));
-	}
+	AddControllerYawInput(Value);
 }
+
+void ABird::LookUp(float Value)
+{
+	AddControllerPitchInput(Value);
+}
+
+/* void ABird::Move(const FInputActionValue& Value)
+{
+	const float DirectionValue = Value.Get<float>();
+	if(Controller &&(DirectionValue != 0.f))
+	{
+		FVector Forward = GetActorForwardVector();
+		AddMovementInput(Forward, DirectionValue);
+	}
+} */
