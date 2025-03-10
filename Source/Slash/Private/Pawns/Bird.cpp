@@ -36,13 +36,13 @@ void ABird::BeginPlay()
 {
 	Super::BeginPlay();
 
-	/* if(APlayerController* PlayerController = Cast<APlayerController>(GetController()))
+	if(APlayerController* PlayerController = Cast<APlayerController>(GetController()))
 	{
 		if(UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			Subsystem->AddMappingContext(BirdMappingContext, 0);
 		}
-	} */
+	}
 
 	
 }
@@ -58,18 +58,19 @@ void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ABird::MoveForward);
+	/* PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ABird::MoveForward);
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ABird::Turn);
-	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &ABird::LookUp);
+	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &ABird::LookUp); */
 
-	/* if(UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
+	if(UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ABird::Move);
-	} */
+		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ABird::Look);
+	}
 
 }
 
-void ABird::MoveForward(float Value)
+/* void ABird::MoveForward(float Value)
 {
 	
 	if(Controller &&(Value != 0.f))
@@ -88,9 +89,9 @@ void ABird::Turn(float Value)
 void ABird::LookUp(float Value)
 {
 	AddControllerPitchInput(Value);
-}
+} */
 
-/* void ABird::Move(const FInputActionValue& Value)
+void ABird::Move(const FInputActionValue& Value)
 {
 	const float DirectionValue = Value.Get<float>();
 	if(Controller &&(DirectionValue != 0.f))
@@ -98,4 +99,14 @@ void ABird::LookUp(float Value)
 		FVector Forward = GetActorForwardVector();
 		AddMovementInput(Forward, DirectionValue);
 	}
-} */
+}
+
+void ABird::Look(const FInputActionValue& Value)
+{
+	const FVector2D LookAxisValue = Value.Get<FVector2D>();
+	if(GetController())
+	{
+		AddControllerYawInput(LookAxisValue.X);
+		AddControllerPitchInput(LookAxisValue.Y);
+	}
+}
