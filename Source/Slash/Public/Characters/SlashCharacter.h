@@ -5,12 +5,15 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "CharacterTypes.h"
+#include "InputActionValue.h"
 #include "SlashCharacter.generated.h"
 
 class UCameraComponent;
 class USpringArmComponent;
 class UGroomComponent;
 class AItem;
+class UInputMappingContext;
+class UInputAction;
 
 UCLASS()
 class SLASH_API ASlashCharacter : public ACharacter
@@ -27,6 +30,19 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere, Category = Input)
+	UInputMappingContext* SlashContext;
+
+	UPROPERTY(EditAnywhere, Category = Input)
+	UInputAction* MovementAction;
+
+	UPROPERTY(EditAnywhere, Category = Input)
+	UInputAction* LookAction;
+	
+	void Move(const FInputActionValue& Value);
+	void Look(const FInputActionValue& Value);
+
+	
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void Turn(float Value);
