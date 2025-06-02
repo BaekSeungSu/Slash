@@ -87,6 +87,7 @@ void ASlashCharacter::Move(const FInputActionValue& Value)
 {
 	const FVector2d MovementVector = Value.Get<FVector2d>();
 
+	if (ActionState == EActionState::EAS_Attacking) return;
 	if (Controller)
 	{
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -110,7 +111,7 @@ void ASlashCharacter::Look(const FInputActionValue& Value)
 	
 }
 
-void ASlashCharacter::MoveForward(float Value)
+/*void ASlashCharacter::MoveForward(float Value)
 {
 	if(Controller && (Value != 0.f))
 	{
@@ -122,9 +123,9 @@ void ASlashCharacter::MoveForward(float Value)
 		AddMovementInput(Direction, Value);
 
 	}
-}
+}*/
 
-void ASlashCharacter::MoveRight(float Value)
+/*void ASlashCharacter::MoveRight(float Value)
 {
 	if(Controller && (Value != 0.f))
 	{
@@ -135,9 +136,9 @@ void ASlashCharacter::MoveRight(float Value)
 
 		AddMovementInput(Direction, Value);
 	}
-}
+}*/
 
-void ASlashCharacter::Turn(float Value)
+/*void ASlashCharacter::Turn(float Value)
 {
 	AddControllerYawInput(Value);
 }
@@ -145,7 +146,7 @@ void ASlashCharacter::Turn(float Value)
 void ASlashCharacter::LookUp(float Value)
 {
 	AddControllerPitchInput(Value);
-}
+}*/
 
 void ASlashCharacter::EKeyPressed()
 {
