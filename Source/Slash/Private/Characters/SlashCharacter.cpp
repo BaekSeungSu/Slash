@@ -141,7 +141,7 @@ void ASlashCharacter::Turn(float Value)
 {
 	AddControllerYawInput(Value);
 }
-
+    
 void ASlashCharacter::LookUp(float Value)
 {
 	AddControllerPitchInput(Value);
