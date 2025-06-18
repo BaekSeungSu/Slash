@@ -12,7 +12,7 @@ AWeapon::AWeapon()
 {
 	WeaponBox = CreateDefaultSubobject<UBoxComponent>(TEXT("WeaponBox"));
 	WeaponBox->SetupAttachment(GetRootComponent());
-	WeaponBox->SetCollisionEnabled(ECollisionEnabled::Type::QueryOnly);
+	WeaponBox->SetCollisionEnabled(ECollisionEnabled::Type::NoCollision);
 	WeaponBox->SetCollisionResponseToAllChannels(ECR_Overlap);
 	WeaponBox->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
 
@@ -70,7 +70,7 @@ void AWeapon::OnBoxOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Oth
 
 	TArray<AActor*> ActorsToIgnore;
 	ActorsToIgnore.Add(this);
-
+	
 	FHitResult BoxHit;
 	UKismetSystemLibrary::BoxTraceSingle(this, Start, End, FVector(5.f, 5.f, 5.f), BoxTraceStart->GetComponentRotation(), TraceTypeQuery1, false, ActorsToIgnore, EDrawDebugTrace::ForDuration, BoxHit, true);
 	
